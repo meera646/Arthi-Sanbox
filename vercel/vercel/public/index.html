@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collective Capital Outreach Portal</title>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" class="teal-icon">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#fff" opacity="0.9" />
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2dd4bf" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>Collective</h1>
+                    <span>CAPITAL AI</span>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <span class="menu-label">MENU</span>
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item active" data-target="dashboard-view">
+                        <i data-lucide="home"></i> Dashboard
+                    </a>
+                    <a href="#" class="nav-item" data-target="campaigns-view">
+                        <i data-lucide="megaphone"></i> Campaigns
+                    </a>
+                    <a href="#" class="nav-item" data-target="explorer-view">
+                        <i data-lucide="compass"></i> Campaign Explorer
+                    </a>
+                    <a href="#" class="nav-item" data-target="escalation-view">
+                        <i data-lucide="list-checks"></i> Escalation Tasks
+                    </a>
+                    <a href="#" class="nav-item" data-target="metrics-view">
+                        <i data-lucide="bar-chart-2"></i> Metrics
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings"></i> Settings
+                </a>
+                <a href="#" class="nav-item destructive">
+                    <i data-lucide="log-out"></i> Sign Out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h2>S-Collect Companion</h2>
+                </div>
+                <div class="header-right">
+                    <button class="notification-btn">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-name">Sarah Jenkins</span>
+                            <span class="user-role">Head Collector</span>
+                        </div>
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Profile avatar" class="avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content view-section" id="dashboard-view" style="display: block;">
+                <!-- Dashboard Control -->
+                <div class="dashboard-header">
+                    <h3>Overview</h3>
+                    <button class="primary-btn" data-target="create-campaign-view">
+                        <i data-lucide="plus"></i> New Campaign
+                    </button>
+                </div>
+
+                <!-- Metrics Row -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">Total Reached</span>
+                            <span class="metric-value">44.4%</span>
+                        </div>
+                        <span class="metric-change positive">+2.4%</span>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">Emails Sent</span>
+                            <span class="metric-value">1,610</span>
+                        </div>
+                        <span class="metric-change positive">+12%</span>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">SMS Delivered</span>
+                            <span class="metric-value">1,220</span>
+                        </div>
+                        <span class="metric-change positive">+8%</span>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-label">Calls Made</span>
+                            <span class="metric-value">155</span>
+                        </div>
+                        <span class="metric-change positive">+4%</span>
+                    </div>
+                </div>
+
+                <!-- Main Grid -->
+                <div class="content-grid">
+                    <!-- Active Campaigns -->
+                    <div class="card campaigns-card">
+                        <div class="card-header">
+                            <i data-lucide="activity" class="text-primary"></i>
+                            <h4>Active Campaigns</h4>
+                        </div>
+                        <div class="empty-state">
+                            <img src="./assets/empty_campaigns_tray.png" alt="Empty tray" class="empty-illustration">
+                            <h5>No active campaigns</h5>
+                            <p>Start a new outreach campaign to see metrics here.</p>
+                            <a href="#" class="text-link">Create Campaign &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="right-stack">
+                        <!-- Action Required -->
+                        <div class="card alert-card">
+                            <div class="card-header border-bottom">
+                                <div class="alert-title">
+                                    <i data-lucide="alert-circle" class="text-destructive"></i>
+                                    <h4>Action Required</h4>
+                                </div>
+                            </div>
+                            <div class="alert-body">
+                                <span class="alert-number">2</span>
+                                <div class="alert-action">
+                                    <p>Open escalation tasks</p>
+                                    <a href="#" class="text-link-destructive">View Tasks</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Interactions -->
+                        <div class="card interactions-card">
+                            <div class="card-header border-bottom">
+                                <h4>Recent Interactions</h4>
+                            </div>
+                            <div class="interaction-list">
+                                <div class="interaction-item">
+                                    <div class="interaction-icon purple-bg">
+                                        <i data-lucide="phone"></i>
+                                    </div>
+                                    <div class="interaction-details">
+                                        <span class="interaction-name">Derek Thompson</span>
+                                        <span class="interaction-desc">answered &bull; Metro Finance Spring</span>
+                                        <span class="interaction-time">MAR 14, 5:30 AM</span>
+                                    </div>
+                                </div>
+                                <div class="interaction-item">
+                                    <div class="interaction-icon teal-bg">
+                                        <i data-lucide="message-square"></i>
+                                    </div>
+                                    <div class="interaction-details">
+                                        <span class="interaction-name">Susan Carter</span>
+                                        <span class="interaction-desc">replied &bull; Metro Finance Spring</span>
+                                        <span class="interaction-time">MAR 12, 5:30 AM</span>
+                                    </div>
+                                </div>
+                                <div class="interaction-item">
+                                    <div class="interaction-icon blue-bg">
+                                        <i data-lucide="mail"></i>
+                                    </div>
+                                    <div class="interaction-details">
+                                        <span class="interaction-name">Derek Thompson</span>
+                                        <span class="interaction-desc">sent &bull; Metro Finance Spring</span>
+                                        <span class="interaction-time">MAR 12, 5:30 AM</span>
+                                    </div>
+                                </div>
+                                <div class="interaction-item">
+                                    <div class="interaction-icon blue-bg">
+                                        <i data-lucide="mail"></i>
+                                    </div>
+                                    <div class="interaction-details">
+                                        <span class="interaction-name">Susan Carter</span>
+                                        <span class="interaction-desc">sent &bull; Metro Finance Spring</span>
+                                        <span class="interaction-time">MAR 11, 5:30 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campaigns-content view-section" id="campaigns-view" style="display: none;">
+                <!-- Campaigns Header -->
+                <div class="campaigns-header">
+                    <div class="header-titles">
+                        <h3>Campaigns</h3>
+                        <p>Manage and track your AI outreach campaigns.</p>
+                    </div>
+                    <button class="primary-btn pill-btn" data-target="create-campaign-view">
+                        <i data-lucide="plus"></i> Create Campaign
+                    </button>
+                </div>
+
+                <!-- Campaigns Table Card -->
+                <div class="campaigns-table-card">
+                    <div class="search-container">
+                        <div class="search-input-wrapper">
+                            <i data-lucide="search"></i>
+                            <input type="text" class="search-input" placeholder="Search campaigns...">
+                        </div>
+                    </div>
+
+                    <table class="campaigns-table">
+                        <thead>
+                            <tr>
+                                <th>CAMPAIGN</th>
+                                <th>STATUS</th>
+                                <th>CHANNELS</th>
+                                <th>CONTACTS</th>
+                                <th>CREATED</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="campaign-info">
+                                        <span class="campaign-name">SunBridge Auto Loans</span>
+                                        <span class="campaign-desc">SunBridge - auto loan delinquencies</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge status-draft">Draft</span></td>
+                                <td>
+                                    <div class="channels-list">
+                                        <span class="channel-badge channel-e">E</span>
+                                        <span class="channel-badge channel-p">P</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="icon-text">
+                                        <i data-lucide="users"></i> 0
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="icon-text">
+                                        <i data-lucide="calendar"></i> Mar 16, 2025
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="campaign-info">
+                                        <span class="campaign-name">Metro Finance Spring</span>
+                                        <span class="campaign-desc">Metro Finance - spring collection sw...</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge status-running">Running</span></td>
+                                <td>
+                                    <div class="channels-list">
+                                        <span class="channel-badge channel-e">E</span>
+                                        <span class="channel-badge channel-s">S</span>
+                                        <span class="channel-badge channel-p">P</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="icon-text">
+                                        <i data-lucide="users"></i> 850
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="icon-text">
+                                        <i data-lucide="calendar"></i> Mar 10, 2025
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="campaign-info">
+                                        <span class="campaign-name">Ace Cash Q1 Recovery</span>
+                                        <span class="campaign-desc">Ace Cash - overdue accounts Q1 2025</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-badge status-complete">Complete</span></td>
+                                <td>
+                                    <div class="channels-list">
+                                        <span class="channel-badge channel-e">E</span>
+                                        <span class="channel-badge channel-s">S</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="icon-text">
+                                        <i data-lucide="users"></i> 1,300
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="icon-text">
+                                        <i data-lucide="calendar"></i> Mar 1, 2025
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="campaign-explorer-content view-section" id="explorer-view" style="display: none;">
+                <div class="explorer-layout">
+                    <div class="explorer-sidebar">
+                        <h5 class="explorer-title">CAMPAIGNS</h5>
+                        <div class="explorer-search">
+                            <i data-lucide="search"></i>
+                            <input type="text" placeholder="Filter campaigns...">
+                        </div>
+                        <div class="explorer-list">
+                            <div class="explorer-item">
+                                <div class="item-header">
+                                    <span class="item-name">SunBridge Auto Loans</span>
+                                    <i data-lucide="chevron-right" class="arrow-icon"></i>
+                                </div>
+                                <div class="item-status">
+                                    <span class="status-dot dot-draft"></span>
+                                    <span class="status-text">Draft</span>
+                                    <span class="status-date">Mar 16, 2025</span>
+                                </div>
+                                <div class="item-metrics">
+                                    <span><i data-lucide="mail"></i> 0</span>
+                                    <span><i data-lucide="message-square"></i> 0</span>
+                                    <span><i data-lucide="phone"></i> 0</span>
+                                </div>
+                            </div>
+                            <div class="explorer-item">
+                                <div class="item-header">
+                                    <span class="item-name">Metro Finance Spring</span>
+                                    <i data-lucide="chevron-right" class="arrow-icon"></i>
+                                </div>
+                                <div class="item-status">
+                                    <span class="status-dot dot-running"></span>
+                                    <span class="status-text">Running</span>
+                                    <span class="status-date">Mar 10, 2025</span>
+                                </div>
+                                <div class="item-metrics">
+                                    <span><i data-lucide="mail"></i> 410</span>
+                                    <span><i data-lucide="message-square"></i> 320</span>
+                                    <span><i data-lucide="phone"></i> 155</span>
+                                </div>
+                            </div>
+                            <div class="explorer-item">
+                                <div class="item-header">
+                                    <span class="item-name">Ace Cash Q1 Recovery</span>
+                                    <i data-lucide="chevron-right" class="arrow-icon"></i>
+                                </div>
+                                <div class="item-status">
+                                    <span class="status-dot dot-complete"></span>
+                                    <span class="status-text">Complete</span>
+                                    <span class="status-date">Mar 1, 2025</span>
+                                </div>
+                                <div class="item-metrics">
+                                    <span><i data-lucide="mail"></i> 1200</span>
+                                    <span><i data-lucide="message-square"></i> 900</span>
+                                    <span><i data-lucide="phone"></i> 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explorer-pane middle-pane" style="flex-direction: column; align-items: stretch; justify-content: flex-start;">
+                        <div class="empty-state middle-empty" style="flex: 1; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%;">
+                            <i data-lucide="inbox" class="large-icon"></i>
+                            <p>Select a campaign to view accounts</p>
+                        </div>
+                        <div class="accounts-container" id="accounts-panel" style="display: none; flex-direction: column; height: 100%; width: 100%;">
+                            <div class="accounts-header">
+                                <h5 class="explorer-title" style="margin: 0; padding-bottom: 12px; font-size: 11px; letter-spacing: 0.5px; color: #64748b;">ACCOUNTS &middot; <span id="accounts-count">0</span></h5>
+                                <div class="explorer-search" style="padding-top: 0; padding-bottom: 16px;">
+                                    <i data-lucide="search"></i>
+                                    <input type="text" placeholder="Search name or account ID...">
+                                </div>
+                            </div>
+                            <div class="accounts-list" id="accounts-list-content">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explorer-pane right-pane">
+                        <div class="empty-state">
+                            <i data-lucide="message-square" class="large-icon"></i>
+                            <p>Select an account to view interactions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="escalation-content view-section" id="escalation-view" style="display: none;">
+                <div class="escalation-header">
+                    <div class="header-titles">
+                        <h3>Escalation Tasks</h3>
+                        <p>Human intervention required for these accounts.</p>
+                    </div>
+                    <div class="toggle-group" id="escalation-toggles">
+                        <button class="toggle-btn active" data-target-list="open-tasks-list">Open Tasks</button>
+                        <button class="toggle-btn" data-target-list="resolved-tasks-list">Resolved</button>
+                    </div>
+                </div>
+
+                <div class="task-list open-task-list" id="open-tasks-list">
+                    <div class="task-card">
+                        <div class="task-content">
+                            <div class="task-info-header">
+                                <h4>Susan Carter</h4>
+                                <span class="task-badge">MF-220003</span>
+                                <a href="#" class="view-profile-link" style="display: none;">View Profile <i data-lucide="external-link"></i></a>
+                            </div>
+                            <div class="task-meta">
+                                Escalated from <span class="fw-600">Metro Finance Spring</span> on Mar 12, 2025 at 5:30
+                                AM
+                            </div>
+                            <div class="task-alert">
+                                <i data-lucide="alert-circle"></i>
+                                <p>Contact disputes the debt via SMS. Potential cease-and-desist situation. Review
+                                    account ownership before proceeding.</p>
+                            </div>
+                        </div>
+                        <div class="task-action-col">
+                            <button class="dark-btn pill-btn resolve-btn">Mark as Resolved</button>
+                            <div class="resolve-form" style="display: none;">
+                                <textarea class="form-textarea resolve-textarea" placeholder="Enter resolution details..."></textarea>
+                                <div class="resolve-actions">
+                                    <button class="text-btn cancel-resolve-btn">Cancel</button>
+                                    <button class="submit-btn green-btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task-card">
+                        <div class="task-content">
+                            <div class="task-info-header">
+                                <h4>Robert Kim</h4>
+                                <span class="task-badge">ACE-141414</span>
+                                <a href="#" class="view-profile-link" style="display: none;">View Profile <i data-lucide="external-link"></i></a>
+                            </div>
+                            <div class="task-meta">
+                                Escalated from <span class="fw-600">Ace Cash Q1 Recovery</span> on Mar 8, 2025 at 5:30
+                                AM
+                            </div>
+                            <div class="task-alert">
+                                <i data-lucide="alert-circle"></i>
+                                <p>3 contact attempts failed. Customer has large balance ($2,200) and is not responding.
+                                    Manual intervention required.</p>
+                            </div>
+                        </div>
+                        <div class="task-action-col">
+                            <button class="dark-btn pill-btn resolve-btn">Mark as Resolved</button>
+                            <div class="resolve-form" style="display: none;">
+                                <textarea class="form-textarea resolve-textarea" placeholder="Enter resolution details..."></textarea>
+                                <div class="resolve-actions">
+                                    <button class="text-btn cancel-resolve-btn">Cancel</button>
+                                    <button class="submit-btn green-btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-list resolved-task-list" id="resolved-tasks-list" style="display: none;">
+                    <div class="task-card resolved-card">
+                        <div class="task-content">
+                            <div class="task-info-header">
+                                <h4>Linda Reyes</h4>
+                                <span class="task-badge">ACE-151515</span>
+                            </div>
+                            <div class="task-meta">
+                                Escalated from <span class="fw-600">Ace Cash Q1 Recovery</span> on Mar 5, 2025 at 5:30 AM
+                            </div>
+                            <div class="task-alert">
+                                <i data-lucide="alert-circle"></i>
+                                <p>Customer requested legal representation. All AI outreach must stop immediately.</p>
+                            </div>
+                            <div class="resolution-notes">
+                                <i data-lucide="message-square"></i>
+                                <div>
+                                    <h5>Resolution Notes:</h5>
+                                    <p>Verified with legal team. Account flagged - no further contact. Referred to legal department.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-content view-section" id="metrics-view" style="display: none;">
+                <div class="metrics-header-area">
+                    <div class="header-titles">
+                        <h3>Performance Metrics</h3>
+                        <p>Deep dive into channel effectiveness and engagement.</p>
+                    </div>
+                </div>
+
+                <div class="perf-cards-row">
+                    <div class="perf-card blue-card">
+                        <span class="perf-label">Global Reach Rate</span>
+                        <span class="perf-value">44.4%</span>
+                    </div>
+                    <div class="perf-card green-card">
+                        <span class="perf-label">Total Engaged Contacts</span>
+                        <span class="perf-value">2,150</span>
+                    </div>
+                    <div class="perf-card purple-card">
+                        <span class="perf-label">Active Campaigns</span>
+                        <span class="perf-value">1</span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h4 class="chart-title">Outreach Volume by Channel</h4>
+                    <div class="chart-container" style="margin-bottom: 24px;">
+                        <div class="y-axis">
+                            <span>1800</span>
+                            <span>1350</span>
+                            <span>900</span>
+                            <span>450</span>
+                            <span>0</span>
+                        </div>
+                        <div class="chart-grid">
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="bars-area">
+                                <div class="bar-group">
+                                    <div class="bar black-bar" style="height: 88%;">
+                                        <div class="chart-tooltip">
+                                            <div class="tooltip-title">Emails</div>
+                                            <div class="tooltip-value">sent : 1610</div>
+                                        </div>
+                                    </div>
+                                    <span class="x-label">Emails</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar teal-bar" style="height: 66%;">
+                                        <div class="chart-tooltip">
+                                            <div class="tooltip-title">SMS</div>
+                                            <div class="tooltip-value">sent : 1220</div>
+                                        </div>
+                                    </div>
+                                    <span class="x-label">SMS</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar black-bar" style="height: 8%;">
+                                        <div class="chart-tooltip left-tooltip">
+                                            <div class="tooltip-title">Calls</div>
+                                            <div class="tooltip-value">made : 155</div>
+                                        </div>
+                                    </div>
+                                    <span class="x-label">Calls</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Campaign Content -->
+            <div class="create-campaign-content view-section" id="create-campaign-view" style="display: none;">
+                <div class="page-header">
+                    <div class="header-titles">
+                        <h3>Create Campaign</h3>
+                        <p>Configure your AI agents and upload your S-Collect export.</p>
+                    </div>
+                </div>
+                
+                <div class="create-layout">
+                    <div class="create-main">
+                        <!-- Campaign Details -->
+                        <div class="create-card">
+                            <div class="card-header border-bottom">
+                                <h4>Campaign Details</h4>
+                            </div>
+                            <div class="card-body form-body">
+                                <div class="form-group">
+                                    <label>Campaign Name</label>
+                                    <input type="text" class="form-input" placeholder="e.g. Q3 Healthcare Debt Recovery">
+                                </div>
+                                <div class="form-group">
+                                    <label>Description (Optional)</label>
+                                    <textarea class="form-textarea" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI Agent Prompts & Sequencing -->
+                        <div class="create-card">
+                            <div class="card-header border-bottom">
+                                <h4>AI Agent Prompts & Sequencing</h4>
+                            </div>
+                            <div class="card-body form-body">
+                                <!-- Email Agent -->
+                                <div class="agent-section">
+                                    <div class="agent-header">
+                                        <input type="checkbox" checked class="custom-checkbox">
+                                        <h5>Email Agent</h5>
+                                    </div>
+                                    <div class="agent-settings">
+                                        <div class="form-group">
+                                            <label>Initial Prompt Template</label>
+                                            <textarea class="form-textarea code-font" rows="3">Hi {{name}}, this is {{agent_name}} from Collective Capital. I'm reaching out regarding your account {{accountId}} with a balance of {{balance}}.</textarea>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Retries</label>
+                                                <input type="number" class="form-input" value="3">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Frequency (hrs)</label>
+                                                <input type="number" class="form-input" value="24">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- SMS Agent -->
+                                <div class="agent-section">
+                                    <div class="agent-header">
+                                        <input type="checkbox" checked class="custom-checkbox">
+                                        <h5>SMS Agent</h5>
+                                    </div>
+                                    <div class="agent-settings">
+                                        <div class="form-group">
+                                            <label>Initial Prompt Template</label>
+                                            <textarea class="form-textarea code-font" rows="2">Hi {{name}}, please contact us regarding account {{accountId}}.</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Voice Agent -->
+                                <div class="agent-section">
+                                    <div class="agent-header">
+                                        <input type="checkbox" checked class="custom-checkbox">
+                                        <h5>Voice Agent</h5>
+                                    </div>
+                                    <div class="agent-settings">
+                                        <div class="form-group">
+                                            <label>System Prompt</label>
+                                            <textarea class="form-textarea code-font" rows="3">Hello, am I speaking with {{name}}? I'm calling from Collective Capital regarding issue {{issueName}}...</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="create-sidebar">
+                        <div class="create-card sticky-card">
+                            <div class="card-header border-bottom">
+                                <h4>Data Source</h4>
+                            </div>
+                            <div class="card-body form-body">
+                                <div class="upload-zone" id="upload-zone-area">
+                                    <input type="file" id="csv-upload" accept=".csv" style="display: none;">
+                                    <div class="upload-icon-wrapper">
+                                        <i data-lucide="cloud-upload"></i>
+                                    </div>
+                                    <h5>Upload S-Collect CSV</h5>
+                                    <p>Drag and drop or click to browse. Must contain accountId and name.</p>
+                                </div>
+                                <button class="primary-btn btn-large full-width-btn" id="create-campaign-btn" disabled>
+                                    <i data-lucide="check-circle"></i> Create & Run Campaign
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
