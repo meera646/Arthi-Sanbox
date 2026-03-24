@@ -1,2 +1,3 @@
 node_modules/
 serve.ps1
+.env.local
