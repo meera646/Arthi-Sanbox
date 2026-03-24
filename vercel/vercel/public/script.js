@@ -255,4 +255,19 @@ async function getEmailCount() {
         console.error("Error fetching email stats:", error);
     }
 }
+async function loadDashboardStats() {
+    try {
+        const response = await fetch('/api/email-stats');
+        const data = await response.json();
+        
+        // Find the HTML element where the "1,610" number is
+        // and update it with the real data from GHL
+        document.getElementById('email-count-display').innerText = data.emailCount.toLocaleString();
+    } catch (err) {
+        console.error("Error loading stats:", err);
+    }
+}
+
+// Run this when the page opens
+window.onload = loadDashboardStats;
   
